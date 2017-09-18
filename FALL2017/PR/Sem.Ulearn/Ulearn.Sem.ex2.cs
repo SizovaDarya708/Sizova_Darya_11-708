@@ -11,9 +11,9 @@ namespace Ulearn.Sem.ex4
     {
         static void Main(string[] args)
         {
-            int H = int.Parse(Console.ReadLine());
-            H = H * 30;
-            Console.WriteLine(H);
+            int hours = int.Parse(Console.ReadLine()); // Часовая стрелка
+            hours = hours * 30;
+            Console.WriteLine(hours);
         }
   
     }

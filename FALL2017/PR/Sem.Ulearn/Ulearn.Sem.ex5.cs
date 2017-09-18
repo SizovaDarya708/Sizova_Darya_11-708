@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,12 @@ namespace Ulearn.Sem.ex5
         {
             int firstYear = int.Parse(Console.ReadLine()); // C этого года
             int lastYear  = int.Parse(Console.ReadLine()); // По этот год
-            int Years = lastYear - firstYear;
-            int Visocos = ((Years / 4) + (Years / 100) - (Years / (400)));
+            int years = lastYear - firstYear;
+            int visocos = ((years / 4) + (years / 100) - (years / (400)));
 
-            Console.WriteLine(Visocos);
+            Console.WriteLine(visocos);
 
         }
     }
 }
+
