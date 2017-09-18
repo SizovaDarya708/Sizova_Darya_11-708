@@ -10,6 +10,7 @@ namespace Ulearn.Sem.ex4
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
            int N = int.Parse(Console.ReadLine()) - 1; // Числа, меньшие N
            int Y = int.Parse(Console.ReadLine());
            int X = int.Parse(Console.ReadLine());
@@ -22,6 +23,11 @@ namespace Ulearn.Sem.ex4
 
 
 
+=======
+            int H = int.Parse(Console.ReadLine());
+            H = H * 30;
+            Console.WriteLine(H);
+>>>>>>> 799554da5c987f7a9264ef8abb367cfaad4fb3f5
         }
     }
 }
