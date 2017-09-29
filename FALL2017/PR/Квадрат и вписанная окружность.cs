@@ -8,17 +8,17 @@ namespace Practise
 {
     class Program
     {
-        static void GetDistance(double ax, double ay, double bx, double by)
+        static double GetDistance(double ax, double ay, double bx, double by)
         {
-            Math.Sqrt(Math.Abs((bx - ax) * (bx - ax) - (by - ay) * (by - ay)));
+           return Math.Sqrt(Math.Abs((bx - ax) * (bx - ax) - (by - ay) * (by - ay)));
         }
-        static void GetCentreOgSquareX(double ax, double bx)
+        static double GetCentreOgSquareX(double ax, double bx)
         {
-            (ax + bx) / 2;
+            return ((ax + bx) / 2);
         }
-        static void GetCentreOgSquareY(double ay, double by)
+        static double GetCentreOgSquareY(double ay, double by)
         {
-            (ay + by) / 2;
+           return ((ay + by) / 2);
         }
         static void Main(string[] args)
         {
@@ -39,7 +39,7 @@ namespace Practise
             double y5 = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите радиус");
             double r = double.Parse(Console.ReadLine());
-            double = centreOfSquareX, centreOfSquareY;
+            double centreOfSquareX, centreOfSquareY, sideOfSquare;
 
             double firstSide = (GetDistance(x1, y1, x2, y2));
             double secondSide = (GetDistance(x1, y1, x3, y3));
@@ -49,13 +49,13 @@ namespace Practise
             {
                 centreOfSquareX = (GetCentreOgSquareX(x1, x2));
                 centreOfSquareY = (GetCentreOgSquareY(y1, y2));
-                sideOfSquare = secondSide / 2;
+               sideOfSquare = secondSide / 2;
             }
             else if ((secondSide > firstSide) && (secondSide > thirdSide))
             {
                 centreOfSquareX = (GetCentreOgSquareX(x1, x3));
                 centreOfSquareY = (GetCentreOgSquareY(y1, y3));
-                sideOfSquare = firstSide / 2;
+               sideOfSquare = firstSide / 2;
             }
             else
             {
@@ -63,11 +63,11 @@ namespace Practise
                 centreOfSquareY = (GetCentreOgSquareY(y1, y4));
                 sideOfSquare = firstSide / 2;
             }
-                 Console.WriteLine((centreOfSquareX == x5) && (centreOfSquareY = y5) && (sideOfSquare == r));
+            Console.WriteLine((centreOfSquareX == x5) && (centreOfSquareY == y5) && (sideOfSquare == r));
 
 
 
-
+             
 
         }
     }
