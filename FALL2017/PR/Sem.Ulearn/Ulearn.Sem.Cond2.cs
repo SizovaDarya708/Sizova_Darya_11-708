@@ -39,7 +39,7 @@ namespace Practise
             double y5 = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите радиус");
             double r = double.Parse(Console.ReadLine());
-            double = centreOfSquareX, centreOfSquareY;
+            double centreOfSquareX, centreOfSquareY;
 
             double firstSide = (GetDistance(x1, y1, x2, y2));
             double secondSide = (GetDistance(x1, y1, x3, y3));
