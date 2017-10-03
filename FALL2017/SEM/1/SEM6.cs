@@ -15,6 +15,8 @@ namespace SEM6
             Console.WriteLine("Введите степень числа, где оно меньше или равно 10000");
             int b = int.Parse(Console.ReadLine());
 
+            a = a % 10;
+
             Console.WriteLine((Math.Pow(a, b)) % 10); 
 
         }
