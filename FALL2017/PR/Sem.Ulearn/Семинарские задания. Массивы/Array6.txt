@@ -1,9 +1,9 @@
 using System;
 
 public class Program
-{ // Çàäà÷à ñ ãîðîäñêèìè êâàðòàëàìè
+{ // // Ð—Ð°Ð´Ð°Ñ‡Ð° Ñ Ð³Ð¾Ñ€Ð¾Ð´ÑÐºÐ¸Ð¼Ð¸ ÐºÐ²Ð°Ñ€Ñ‚Ð°Ð»Ð°Ð¼Ð¸
     
-    static int TheGreatestCommonDivisor(int x, int y)  //Ìåòîä íàõîæäåíèÿ íàèáîëüøåãî îáùåãî äåëèòåëÿ
+    static int TheGreatestCommonDivisor(int x, int y)  //ÐœÐµÑ‚Ð¾Ð´ Ð½Ð°Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð½Ð°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐµÐ³Ð¾ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»Ñ
     {
         while (x != y)
             if (x > y)
