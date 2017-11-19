@@ -1,0 +1,46 @@
+
+using System;
+using System.Collections.Generic;
+
+namespace Sem.Array5
+{
+    class Program
+	//Дан неубывающий массив положительных целых чисел. Найти наименьшее положительное целое число, не представимое в виде 
+        //суммы элементов этого массива (каждый элемент разрешается использовать в сумме только один раз).
+    {
+        public static void Main(string[] args)
+        {
+	    Console.WriteLine("Введите количество элементов в массиве");
+            int count = int.Parse(Console.ReadLine());
+            int elementOfArray;
+	    int min = int.MaxValue;
+	    int sum = 0;
+            
+            Console.WriteLine("Введите элементы массива");
+ 	    elementOfArray = int.Parse(Console.ReadLine());
+            
+	    if (elementOfArray > 1) 
+		min = 1;
+            else
+            {
+	        sum = elementOfArray;
+                for (int i = 1; i < count; i++)
+                {
+                    elementOfArray = int.Parse(Console.ReadLine());
+
+                    
+                    if (elementOfArray>sum+1)
+                    {
+                        min = sum + 1;
+                        break;
+                    }
+                    sum += elementOfArray;
+                }
+                if (min == int.MaxValue) min = sum;
+            }
+            Console.WriteLine(min);
+
+
+        }
+    }
+}
