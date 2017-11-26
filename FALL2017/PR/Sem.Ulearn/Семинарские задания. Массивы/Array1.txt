@@ -10,9 +10,9 @@ namespace Sem.Array1
 
     class Program
     {
-	//Дан массив чисел. Нужно его сдвинуть циклически на K позиций вправо, не используя других массивов.
+	//Р”Р°РЅ РјР°СЃСЃРёРІ С‡РёСЃРµР». РќСѓР¶РЅРѕ РµРіРѕ СЃРґРІРёРЅСѓС‚СЊ С†РёРєР»РёС‡РµСЃРєРё РЅР° K РїРѕР·РёС†РёР№ РІРїСЂР°РІРѕ, РЅРµ РёСЃРїРѕР»СЊР·СѓСЏ РґСЂСѓРіРёС… РјР°СЃСЃРёРІРѕРІ.
         
-	static void ArrayRotation(int[] array, int start, int finish)  //Метод разворота массива
+	static void ArrayRotation(int[] array, int start, int finish)  //РњРµС‚РѕРґ СЂР°Р·РІРѕСЂРѕС‚Р° РјР°СЃСЃРёРІР°
         {
             for (int i = 0; i < (finish - start)/2; i++)
             {
@@ -24,17 +24,17 @@ namespace Sem.Array1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите количество элементов в массиве");
+            Console.WriteLine("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ");
 	    int count = int.Parse(Console.ReadLine());
 
             var arrayOfNumbers = new int[count];
-	    Console.WriteLine("Поочередно введите элементы массива");
+	    Console.WriteLine("РџРѕРѕС‡РµСЂРµРґРЅРѕ РІРІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°");
             for (int i = 0; i < count; i++)
             {
                 arrayOfNumbers[i] = int.Parse(Console.ReadLine());
             }
             
-	    Console.WriteLine("Введите значение сдвига массива");
+	    Console.WriteLine("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ СЃРґРІРёРіР° РјР°СЃСЃРёРІР°");
 	    int k = int.Parse(Console.ReadLine());
 
             ArrayRotation(arrayOfNumbers, 0, count);
