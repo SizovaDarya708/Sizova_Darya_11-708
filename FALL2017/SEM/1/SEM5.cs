@@ -17,6 +17,7 @@ namespace SEM5
 
             for (int i = 1; i <= number; i++)
             {
+		// ---check--- разве такой проверки достаточно на простоту?
                 if ((number % i == 0) && (i % 2 != 0) && (number % 3 != 0) && (i % 5 != 0))
                     sum += i;
             }
