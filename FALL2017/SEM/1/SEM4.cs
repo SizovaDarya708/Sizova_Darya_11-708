@@ -27,6 +27,7 @@ namespace SEM4
                 length2 = int.Parse(Console.ReadLine());
             
                 area = length1 * length2;
+		// ---check--- разве надо со всеми тремя сравнивать?
                 if ((area < minArea1) && (area < minArea2) && (area < minArea3))
                 {
                     minArea3 = minArea2;

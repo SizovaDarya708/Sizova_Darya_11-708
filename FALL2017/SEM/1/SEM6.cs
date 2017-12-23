@@ -17,6 +17,7 @@ namespace SEM6
 
             a = a % 10;
 
+	    // ---check--- вылет по памяти у вас
             Console.WriteLine((Math.Pow(a, b)) % 10); 
 
         }
