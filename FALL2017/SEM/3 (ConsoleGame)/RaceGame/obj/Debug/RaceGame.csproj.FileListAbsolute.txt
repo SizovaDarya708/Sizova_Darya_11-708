@@ -1,0 +1,7 @@
+C:\Users\Darya\source\repos\RaceGame\RaceGame\bin\Debug\RaceGame.exe.config
+C:\Users\Darya\source\repos\RaceGame\RaceGame\bin\Debug\RaceGame.exe
+C:\Users\Darya\source\repos\RaceGame\RaceGame\bin\Debug\RaceGame.pdb
+C:\Users\Darya\source\repos\RaceGame\RaceGame\obj\Debug\RaceGame.csprojResolveAssemblyReference.cache
+C:\Users\Darya\source\repos\RaceGame\RaceGame\obj\Debug\RaceGame.csproj.CoreCompileInputs.cache
+C:\Users\Darya\source\repos\RaceGame\RaceGame\obj\Debug\RaceGame.exe
+C:\Users\Darya\source\repos\RaceGame\RaceGame\obj\Debug\RaceGame.pdb
