@@ -23,6 +23,7 @@ namespace SEM2._4
             if (valueN >= valueM)
                 for (int i = 0; i <= count; i++)
                 {
+					// ---check--- Здесь выход за границы массива
                     n[i] = N.Substring(i, 1);      
                 }
             else

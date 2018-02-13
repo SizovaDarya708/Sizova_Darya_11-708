@@ -50,6 +50,7 @@ namespace SEM2._3
         {
             double hight = 2 / step;
             step = step / 2;
+			//---check--- почему не одним циклом?
             double firstSumOfSqrt = 0;
             for (int i = 1; i < step; i++)
                 firstSumOfSqrt += Function(1 + 2 * i * hight);
@@ -61,6 +62,7 @@ namespace SEM2._3
 
         static double GetIntegralWithMonteCarlo(double n) // Вычисление интеграла методом Монте-Карло
         {
+			//---check--- какая-то не такая реализация у вас
             double delta = 2 / n;
             double sum = 0;
             Random rnd = new Random();

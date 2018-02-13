@@ -35,6 +35,7 @@ namespace SEM2_1._2_
             for (; ; )
             {
                 previousSum = sum;
+				//---check--- тут аналогично - неоптимальное решение. не надо было на каждом шаге возводить в степень и считать факториал
                  sum = ((Math.Pow(-1, k)) * (Math.Pow(x, k)) * (GetFactorial(GetFactorial(2*k + 1)))) / (GetFactorial(GetFactorial(2*k))) + sum;
                 if (Math.Abs(Math.Abs(sum) - Math.Abs(previousSum)) <= epsilon) break;
                 k++;             

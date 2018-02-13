@@ -29,6 +29,7 @@ namespace SEM2_1._3_
             for (; ; )
             {
                 previousG = G;
+				// ---check--- всё те же самое, что и в предыдущих задачах
                 sum += Math.Pow(GetFactorial(k), 2) / (GetFactorial(2 * k) * Math.Pow(2 * k + 1, 2));
                 G = ((Math.PI) / 8) * Math.Log(Math.Sqrt(3.0) + 2.0) + (3.0 / 8.0) * sum;
                 if (Math.Abs(previousG - G) <= epsilon) break;

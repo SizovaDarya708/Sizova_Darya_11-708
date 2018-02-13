@@ -20,6 +20,7 @@ namespace SEM2._2
             double previousSum = 0; // Предыдущая сумма 
             for (; ; )
             {
+				// ---check--- здесь то же самое
                 previousSum = sum;
                 sum += GetFunction(k, x);
                 if (Math.Abs(Math.Abs(sum)-Math.Abs(previousSum)) <= epsilon) // Нахождение приближенной точности

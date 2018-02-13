@@ -34,8 +34,10 @@ namespace SEM2._1._1_
             double sum = 0;
             double k = 0; // Шаг 
 
+			//---check--- лучше наверное while? сурово for смотрится без параметров
             for (; ; )
             {
+				//---check--- неоптимально степени на каждом шаге считать, надо было пересчитывать относительно предыдущего результата
                 sum += GetFunction(k, x);
                 k++;
                 if (Math.Abs(GetFunction(k-1, x)) <= epsilon) break;
