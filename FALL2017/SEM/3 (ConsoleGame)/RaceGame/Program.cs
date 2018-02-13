@@ -89,7 +89,7 @@ namespace Racing
                     map.SetValue(left + 1, top - i, 0);
                     map.SetValue(left - 1, top - i, 0);
                 }
-                 top++;
+                 top++; 
 
                 map.SetValue(left + 1, top, 1);
                 map.SetValue(left - 1, top, 1);
