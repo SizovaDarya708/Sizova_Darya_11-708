@@ -4,38 +4,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Связность
+namespace graf
 {
-    
-
     class Program
     {
-
-        public static bool FindConnectivity(int i, int j, int[] arrayOfConnectivy)
-        {
-
-        }
-
-
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите количество вершин");
+            Console.WriteLine("Введите колличество вершин");
             int tops = int.Parse(Console.ReadLine());
-            int[] array = new int[tops];
-            Console.WriteLine("Введите количество пар чисел связности");
-            int n = int.Parse(Console.ReadLine());
+            int[] array = new int[tops]; // Массив с предыдущем элементом
+            int[] arrayOfCount = new int[tops]; // Массив с числом вершин
 
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < tops; i++)
             {
-                Console.WriteLine("Введите пару чисел");
+                array[i] = i;
+                arrayOfCount[i] = 1;
+            }
+            
+            for(; ;)
+            {
+                Console.WriteLine("Введите числа связности");
                 int a = int.Parse(Console.ReadLine());
                 int b = int.Parse(Console.ReadLine());
-                array[a] = b;
-            }
+                int x = a;
+                int y = b;
 
-            
-            
+                while (x != array[x]) // Числа не связны
+                {
+                    array[x] = array[array[x]]; // изменение ссылки на предыдущий элемент
+                    x = array[x];
+                }
+
+                while (y != array[y])
+                {
+                    array[y] = array[array[y]];
+                    y = array[y];
+                }
+
+                if (x != y) // Если вершины не связны
+                {
+                    Console.WriteLine(a + "связан с " + b);
+
+                    if (arrayOfCount[x] >= arrayOfCount[y]) // Проводим сравнение графов
+                    {
+                        array[y] = x;
+                        arrayOfCount[x] += arrayOfCount[y];
+                    }
+                    else
+                    {
+                        array[x] = y;
+                        arrayOfCount[y] += arrayOfCount[x];        
+                    }
+                }
+                else Console.WriteLine("Ошибка связности");
+            }
         }
     }
 }
