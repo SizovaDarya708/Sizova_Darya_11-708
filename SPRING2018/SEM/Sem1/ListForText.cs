@@ -18,7 +18,7 @@ namespace ListForText
     }
     public class VirtualRAM
     {
-        private List<Block> MemotyList = new List<Block>();
+        private List<Block> MemoryList = new List<Block>();
         public VirtualRAM()
         {
 
@@ -46,25 +46,25 @@ namespace ListForText
         //Метод для вставки элемента в список. Вставки нового элемента/блока в список с проверкой на пересечение
         public bool TakeMemory(int Pointer, int Length)
         {
-            for (int i = 0; i < MemotyList.Count; i++)
+            for (int i = 0; i < MemoryList.Count; i++)
             {
-                if (IsCreateble(Pointer, Length, MemotyList[i].Ptr, MemotyList[i].Len))
+                if (IsCreateble(Pointer, Length, MemoryList[i].Ptr, MemoryList[i].Len))
                     continue;
                 else
                     return false;
             }
-            MemotyList.Push(new Block(Pointer, Length));
+            MemoryList.Push(new Block(Pointer, Length));
             return true;
         }
 
         // Удаления элемента из списка, освобождение
         public void Free(int Pointer, int Lenght)
         {
-            for (int i = 0; i < MemotyList.Count; i++)
+            for (int i = 0; i < MemoryList.Count; i++)
             {
-                if (MemotyList[i].Ptr == Pointer && MemotyList[i].Len == Lenght)
+                if (MemoryList[i].Ptr == Pointer && MemoryList[i].Len == Lenght)
                 {
-                    MemotyList.Delete(i);
+                    MemoryList.Delete(i);
                     return;
                 }
             }
@@ -95,25 +95,25 @@ namespace ListForText
         //выводит все блоки на экран,но при этом удаляет их
         public void PrintOut()
         {
-            for (int i = 0; i < MemotyList.Count; i++)
+            for (int i = 0; i < MemoryList.Count; i++)
             {
-                Console.Write(MemotyList[i].Ptr);
+                Console.Write(MemoryList[i].Ptr);
                 Console.Write(" ");
-                Console.Write(MemotyList[i].Len);
+                Console.Write(MemoryList[i].Len);
                 Console.WriteLine("");
             }
-            MemotyList = new List<Block>();
+            MemoryList = new List<Block>();
         }
 
         // Метод формирование нового списка из блоков длины не менее L 
         public VirtualRAM CreateNewVirtualRAM(int Lenght)
         {
             VirtualRAM ans = new VirtualRAM();
-            for (int i = 0; i < MemotyList.Count; i++)
+            for (int i = 0; i < MemoryList.Count; i++)
             {
-                if (MemotyList[i].Len >= Lenght)
+                if (MemoryList[i].Len >= Lenght)
                 {
-                    ans.TakeMemory(MemotyList[i].Ptr, MemotyList[i].Len);
+                    ans.TakeMemory(MemoryList[i].Ptr, MemoryList[i].Len);
                 }
             }
             return ans;
@@ -123,13 +123,13 @@ namespace ListForText
         public static VirtualRAM Merge(VirtualRAM a, VirtualRAM b)
         {
             VirtualRAM ans = new VirtualRAM();
-            for (int i = 0; i < a.MemotyList.Count; i++)
+            for (int i = 0; i < a.MemoryList.Count; i++)
             {
-                ans.TakeMemory(a.MemotyList[i].Ptr, a.MemotyList[i].Len);
+                ans.TakeMemory(a.MemoryList[i].Ptr, a.MemoryList[i].Len);
             }
-            for (int i = 0; i < b.MemotyList.Count; i++) // выкидывает Exception при возможных ошибках(пересечение)
+            for (int i = 0; i < b.MemoryList.Count; i++) // выкидывает Exception при возможных ошибках(пересечение)
             {
-                if (!ans.TakeMemory(b.MemotyList[i].Ptr, b.MemotyList[i].Len))
+                if (!ans.TakeMemory(b.MemoryList[i].Ptr, b.MemoryList[i].Len))
                     throw new Exception();
             }
             return ans;
@@ -138,30 +138,35 @@ namespace ListForText
         //Изменения элемента списка (при запросе оперативной памяти - запрос осуществляет пользователь)
         // или ее освобождении
 
-        public bool Modification(int index, int newPoiner, int newLenght)
+        public bool Modification(int Pointer, int Lenght, int newPoiner, int newLenght)
         {
-            if (newLenght == newPoiner && newPoiner == 0)
+            int index = -1;
+            for (int i = 0; i < MemoryList.Count; i++)
             {
-                //если newPoinret = newLenght = 0, то блок удаляется
-                MemotyList.Delete(index);
-                return true;
+                if (MemoryList[i].Ptr == Pointer && MemoryList[i].Len == Lenght)
+                    index = i;
             }
-            // в противном случае проверяется можно ли модифицировать память так, как того требуют
-            // если нет, то возвращается false,если да, то память модифицируется, и возвращается true.
-            for (int i = 0; i < MemotyList.Count; i++)
+            if (index == -1)
+                return false;
+            if (newPoiner == 0 && newLenght == -1)
+            {
+                MemoryList.Delete(index);
+                return false;
+            }
+            for (int i = 0; i < MemoryList.Count; i++)
             {
                 if (i != index)
                 {
-                    if (IsCreateble(MemotyList[i].Ptr, MemotyList[i].Len, newPoiner, newLenght))
+                    if (IsCreateble(MemoryList[i].Ptr, MemoryList[i].Len, newPoiner, newLenght))
                         continue;
                     else
                         return false;
                 }
             }
-            MemotyList[index].Ptr = newPoiner;
-            MemotyList[index].Len = newLenght;
+            MemoryList[index].Ptr = newPoiner;
+            MemoryList[index].Len = newLenght;
             return true;
-        }   
+        }
     }
 
     class Node<T>
