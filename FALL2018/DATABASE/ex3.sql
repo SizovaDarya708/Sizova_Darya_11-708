@@ -17,9 +17,7 @@ GO
 CREATE TABLE movies(
 movie_name nvarchar(30),
 movie_description ntext,
-movie_year date UNIQUE CHECK(movie_year>1990 AND movie_year < 2028),
-/*как найти текущий год? 
-пробовала GETDATE и SELECT SYSDATETIME(), CONVER(date, CURRENT_YEAR)*/
+movie_year date UNIQUE CHECK(movie_year>1990 AND movie_year < YEAR(GETDATE()+10)),
 genres nchar(20),
 country nvarchar,
 budget money CHECK(budget>10000)
@@ -29,10 +27,11 @@ GO
 
 CREATE TABLE actors(
 surname nvarchar UNIQUE,
-actor_name nvarchar,
+actor_name nvarchar UNIQUE,
 birthday date UNIQUE,
 motherland nvarchar,
 number_of_movies int CHECK(number_of_movies>5)
+CONSTRAINT Const_surname UNIQUE(surname, actor_name, birthday)
  );
  GO
 
