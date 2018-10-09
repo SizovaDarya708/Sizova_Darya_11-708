@@ -1,0 +1,72 @@
+В этом примере создается таблица и 
+определяется ограничение внешнего ключа 
+для столбца TempID , ссылающегося на
+ столбец SalesReasonID
+ в таблице Sales.SalesReason . П
+редложения ON DELETE CASCADE и 
+ON UPDATE CASCADE используются для 
+обеспечения распространения изменений, 
+вносимых в таблицу Sales.SalesReason 
+на таблицу Sales.TempSalesReason .
+
+
+USE AdventureWorks2012;    
+GO    
+CREATE TABLE Sales.TempSalesReason (TempID int NOT NULL, Name nvarchar(50),     
+CONSTRAINT PK_TempSales PRIMARY KEY NONCLUSTERED (TempID),     
+CONSTRAINT FK_TempSales_SalesReason FOREIGN KEY (TempID)     
+    REFERENCES Sales.SalesReason (SalesReasonID)     
+    ON DELETE CASCADE    
+    ON UPDATE CASCADE    
+);GO    
+
+Создание внешнего ключа в существующей таблице
+В этом примере создается внешний ключ для столбца TempID, 
+ссылающийся на столбец SalesReasonID в таблице Sales.SalesReason.
+
+USE AdventureWorks2012;    
+GO    
+ALTER TABLE Sales.TempSalesReason     
+ADD CONSTRAINT FK_TempSales_SalesReason FOREIGN KEY (TempID)     
+    REFERENCES Sales.SalesReason (SalesReasonID)     
+    ON DELETE CASCADE    
+    ON UPDATE CASCADE    
+;    
+GO    
+
+
+
+
+Допустим, что имеется две таблицы - коктейли и ингредиенты
+тогда их можно связать при создании табл ингр так:(отн один ко многим)
+1) CREATE TABLE ingrediend_1(
+    NAMECOCKTAIL VARCHAR(30) REFERENCES cocktail(NAMECOCKTAIL),
+    NAMEINGREDIEND VARCHAR(30),
+    VOLUME INTEGER,
+    GRADUS INTEGER
+);
+
+2)CREATE TABLE ingrediend_2(
+    NAMECOCKTAIL VARCHAR(30),
+    NAMEINGREDIEND VARCHAR(30),
+    VOLUME INTEGER,
+    GRADUS INTEGER,
+    FOREIGN KEY(NAMECOCKTAIL) REFERENCES cocktail(NAMECOCKTAIL)
+);
+
+3)CREATE TABLE ingrediend_3(
+    NAMECOCKTAIL VARCHAR(30),
+    NAMEINGREDIEND VARCHAR(30),
+    VOLUME INTEGER,
+    GRADUS INTEGER,
+    CONSTRAINT fk FOREIGN KEY(NAMECOCKTAIL) REFERENCES cocktail(NAMECOCKTAIL)
+);
+
+
+Создание первичного ключа в таблице TransactionID
+
+USE AdventureWorks2012;  
+GO  
+ALTER TABLE Production.TransactionHistoryArchive   
+ADD CONSTRAINT PK_TransactionHistoryArchive_TransactionID PRIMARY KEY CLUSTERED (TransactionID);  
+GO  
