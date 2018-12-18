@@ -12,13 +12,13 @@ namespace Wether
         static void Main(string[] args)
         {
             Console.WriteLine("Enter your city...");
-            string city = Convert.ToString(Console.ReadLine());
+            string city = System.Convert.ToString(Console.ReadLine());
 
-            Wether(city);
+            GetWeather(city);
             Console.ReadKey();
         }
 
-        public static void Wether(string city)
+        public static void GetWeather(string city)
         {
             var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather." +
                 "forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text" +
@@ -33,15 +33,20 @@ namespace Wether
             {
                 throw new ArgumentNullException();
             }
-            string[] dates = downloadInfo.Split('<');
-            string result = dates[45];
-            dates = result.Split('=');
-            result = dates[4];
-            dates = result.Split('"');
-            result = dates[1];
-            var temperature = Convert.ToInt16(result);
+            var temperature = Convert(dates);
 
             Console.WriteLine("The temperature in your city is " + temperature);     
+        }
+
+        public static string Convert(string[] data)
+        {
+            string[] data = downloadInfo.Split('<');
+            string result = data[45];
+            data = result.Split('=');
+            result = data[4];
+            data = result.Split('"');
+            result = data[1];
+            var temperature = System.Convert.ToInt16(result);
         }
     }
 }
