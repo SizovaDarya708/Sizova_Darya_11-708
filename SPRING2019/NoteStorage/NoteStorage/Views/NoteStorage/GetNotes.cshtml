@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "GetNotes";
+}
+
+<form action="/NoteStorage/GetNotes/">
+    <style>
+        form {
+            height: 2000px;
+            background-image: url(https://html5book.ru/wp-content/uploads/2015/10/background56.jpg)
+        }
+        /*https://pp.userapi.com/c824202/v824202032/def97/rny1PPsF4n4.jpg*/
+        textarea {
+            width: 400px;
+            height: 200px
+        }
+    </style>
+    <h1>Your Notes</h1>
+    @foreach (string e in ViewBag.TotalNotes)
+    {
+       <p> <a href="/NoteStorage/EditNote/?fileName=@e"  class="active">@e</a></p>
+    }
+</form>

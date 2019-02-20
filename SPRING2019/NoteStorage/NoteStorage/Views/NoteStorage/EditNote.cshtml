@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "EditNote";
+}
+<h2>EditNote</h2>
+<form action="/NoteStorage/EditNote/">
+    <style>
+        form {
+            height: 2000px;
+            background-image: url(https://html5book.ru/wp-content/uploads/2015/10/background56.jpg)
+        }
+        textarea {
+            width: 400px;
+            height: 200px
+        }
+    </style>
+    <table>
+        <tr>
+            <td>
+                <label for="name">Name</label>
+            </td>
+
+            <td>
+                <input type="text" value="@ViewData["Name"]"  name="name" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label" for="text">Text</">
+            </td>
+
+            <td>
+                <textarea typeof="text" name="text">@ViewData["text"]</textarea>
+            </td>
+        </tr>
+    </table>
+    <a href="/NoteStorage/SavedNote/" class="active">Save</a>
+</form>
+
+

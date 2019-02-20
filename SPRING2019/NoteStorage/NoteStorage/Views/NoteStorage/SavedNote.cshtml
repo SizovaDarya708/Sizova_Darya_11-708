@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Note"] = "SavedNote";
+}
+Your note has been saved
+<div> title: @ViewData["Name"]</div>
+<div> text: @ViewData["Text"] </div>
+<form action="/NoteStorage/GetNotes/">
+    <input type="submit" value="Get Notes" />
+</form>
+
+
+
+
+
